@@ -14,7 +14,7 @@ async function addMeal() {
 
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/meals/add", {
+    const res = await fetch(`${API_URL}/api/meals/add`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

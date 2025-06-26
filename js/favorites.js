@@ -5,7 +5,7 @@ const emptyMessage = document.getElementById("emptyMessage");
 
 async function fetchFavorites() {
   try {
-    const res = await fetch("http://localhost:5000/api/users/customer/profile", {
+    const res = await fetch(`${API_URL}/api/users/customer/profile`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -51,7 +51,7 @@ function renderFavorites(favoriteMeals) {
 
 async function removeFavorite(mealId) {
   try {
-    const res = await fetch(`http://localhost:5000/api/users/customer/favorite/${mealId}`, {
+    const res = await fetch(`${API_URL}/api/users/customer/favorite/${mealId}`, {
       method: "PUT",
       headers: {
         Authorization: `Bearer ${token}`

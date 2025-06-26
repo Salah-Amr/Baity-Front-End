@@ -12,7 +12,7 @@ async function fetchChefData() {
     const decoded = jwt_decode(token);
     chefId = decoded.userId;
 
-    const res = await fetch(`http://localhost:5000/api/users/chef/${chefId}`, {
+    const res = await fetch(`${API_URL}/api/users/chef/${chefId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -44,7 +44,7 @@ async function updateChefData() {
   };
 
   try {
-    const res = await fetch(`http://localhost:5000/api/users/chef/${chefId}`, {
+    const res = await fetch(`${API_URL}/api/users/chef/${chefId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

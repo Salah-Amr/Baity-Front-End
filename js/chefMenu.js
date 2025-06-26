@@ -19,7 +19,7 @@ function showCategory(type) {
 
 async function fetchMeals() {
   try {
-    const response = await fetch("http://localhost:5000/api/meals");
+    const response = await fetch(`${API_URL}/api/meals`);
     const data = await response.json();
 
     if (!response.ok) throw new Error(data.message);
@@ -62,7 +62,7 @@ async function showName() {
     const decoded = jwt_decode(token);
     const chefId = decoded.userId;
 
-    const res = await fetch(`http://localhost:5000/api/users/chef/${chefId}`, {
+    const res = await fetch(`${API_URL}/api/users/chef/${chefId}`, {
       headers: {
         Authorization: `Bearer ${token}`
       }

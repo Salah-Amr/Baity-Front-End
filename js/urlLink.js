@@ -1,0 +1,1 @@
+const API_URL = 'https://baity-back-end-production.up.railway.app';

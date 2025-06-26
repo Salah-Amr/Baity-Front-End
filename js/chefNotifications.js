@@ -2,7 +2,7 @@
 
   async function fetchNotifications() {
   try {
-    const res = await fetch("http://localhost:5000/api/orders/chef/", {
+    const res = await fetch(`${API_URL}/api/orders/chef/`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -65,7 +65,7 @@ async function updateOrder(orderId, status) {
   const token = localStorage.getItem("token");
 
   try {
-    const res = await fetch(`http://localhost:5000/api/orders/status/${orderId}`, {
+    const res = await fetch(`${API_URL}/api/orders/status/${orderId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

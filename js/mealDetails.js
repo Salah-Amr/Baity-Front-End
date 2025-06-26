@@ -24,7 +24,7 @@
       const mealId = localStorage.getItem("mealId");
       if (!mealId) return;
 
-      const res = await fetch(`http://localhost:5000/api/meals/${mealId}`);
+      const res = await fetch(`${API_URL}/api/meals/${mealId}`);
       const data = await res.json();
       meal = data.meal;
 
@@ -90,7 +90,7 @@
       }
 
       try {
-        const res = await fetch(`http://localhost:5000/api/orders/${meal._id}`, {
+        const res = await fetch(`${API_URL}/api/orders/${meal._id}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -118,7 +118,7 @@
         const rating = parseInt(star.dataset.rate);
         const mealId = localStorage.getItem("mealId");
         const token = localStorage.getItem("token");
-        const res = await fetch(`http://localhost:5000/api/meals/rate/${mealId}`, {
+        const res = await fetch(`${API_URL}/api/meals/rate/${mealId}`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",

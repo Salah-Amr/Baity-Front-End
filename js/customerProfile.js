@@ -4,7 +4,7 @@ let isEditing = false;
 async function fetchCustomerData() {
   try {
     const token = localStorage.getItem("token");
-    const res = await fetch("http://localhost:5000/api/users/customer/profile", {
+    const res = await fetch(`${API_URL}/api/users/customer/profile`, {
       headers: {
         Authorization: `Bearer ${token}`
       }
@@ -33,7 +33,7 @@ async function updateCustomerData() {
   };
 
   try {
-    const res = await fetch("http://localhost:5000/api/users/customer/profile", {
+    const res = await fetch(`${API_URL}/api/users/customer/profile`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",

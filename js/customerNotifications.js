@@ -3,7 +3,7 @@ const token = localStorage.getItem("token");
 
 async function fetchNotifications() {
   try {
-    const res = await fetch("http://localhost:5000/api/orders/customer/", {
+    const res = await fetch(`${API_URL}/api/orders/customer/`, {
       headers: { Authorization: `Bearer ${token}` }
     });
 
@@ -82,7 +82,7 @@ async function cancelOrder(orderId) {
 
   try {
     // 1. تحديث حالة الدفع إلى "تم الإلغاء"
-    const res = await fetch(`http://localhost:5000/api/orders/payment/${orderId}`, {
+    const res = await fetch(`${API_URL}/api/orders/payment/${orderId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
@@ -98,7 +98,7 @@ async function cancelOrder(orderId) {
     }
 
     // 2. حذف الطلب من قاعدة البيانات
-    const deleteRes = await fetch(`http://localhost:5000/api/orders/customer/${orderId}`, {
+    const deleteRes = await fetch(`${API_URL}/api/orders/customer/${orderId}`, {
       method: "DELETE",
       headers: { Authorization: `Bearer ${token}` }
     });

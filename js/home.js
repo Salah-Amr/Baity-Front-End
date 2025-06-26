@@ -17,9 +17,9 @@
       loader.style.display = "block";
 
       const [mealsRes, chefsRes, favRes] = await Promise.all([
-        fetch("http://localhost:5000/api/meals"),
-        fetch("http://localhost:5000/api/users/chef"),
-        fetch("http://localhost:5000/api/users/customer/profile", {
+        fetch(`${API_URL}/api/meals`),
+        fetch(`${API_URL}/api/users/chef`),
+        fetch(`${API_URL}/api/users/customer/profile`, {
           headers: { Authorization: `Bearer ${token}` }
         })
       ]);
@@ -52,7 +52,7 @@
     icon.addEventListener("click", async (event) => {
       event.stopPropagation();
       try {
-        const res = await fetch(`http://localhost:5000/api/users/customer/favorite/${mealId}`, {
+        const res = await fetch(`${API_URL}/api/users/customer/favorite/${mealId}`, {
           method: "PUT",
           headers: { Authorization: `Bearer ${token}` }
         });
